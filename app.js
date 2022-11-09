@@ -13,7 +13,11 @@ const events = contract.getPastEvents('AllEvents',
  }).then(function (events) {
     if (events.length) {
         for (var i = 0, len = events.length; i < len; i+=1) {
-            console.log(events[i].returnValues.from);
+            if (events[i].returnValues.from == "0x0000000000000000000000000000000000000000") {
+                console.log(events[i].returnValues.to)
+                console.log(events[i].returnValues.tokenId)
+            } else {
+            };
         }
     }
  });
